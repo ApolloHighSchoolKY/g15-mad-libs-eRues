@@ -35,9 +35,18 @@ public class MadLib
 
 		try
 		{
+			String ogStory = "";
+			Scanner stringMaker = new Scanner(fileName);
+			while(stringMaker.hasNext())
+			{
+				ogStory += stringMaker.next();
+			}
+
+			stringMaker.close();
+			
 			//Read the different parts of the story and concatenate the resulting
 			//story using the symbols to tell you the parts of speech
-			Scanner reader = new Scanner(new File(fileName));
+			Scanner reader = new Scanner(ogStory);
 
 			//While there is more of the story, read in the word/symbol
 			while(reader.hasNext())
@@ -132,17 +141,17 @@ public class MadLib
 
 	public String getRandomVerb()
 	{
-		return "" + verbs.get((int)(Math.random()*verbs.size() + 1));
+		return "" + verbs.get((int)(Math.random()*verbs.size()));
 	}
 
 	public String getRandomNoun()
 	{
-		return "" + nouns.get((int)(Math.random()*nouns.size() + 1));
+		return "" + nouns.get((int)(Math.random()*nouns.size()));
 	}
 
 	public String getRandomAdjective()
 	{
-		return "" + adjectives.get((int)(Math.random()*adjectives.size() + 1));
+		return "" + adjectives.get((int)(Math.random()*adjectives.size()));
 	}
 
 	public String toString()
